@@ -1,0 +1,50 @@
+name: "mapsplice"
+description: Accurate mapping of RNA-seq reads for splice junction discovery
+keywords:
+  - aligner
+  - splice sites
+  - splice junctions
+tools:
+  - "mapsplice":
+      description: "MapSplice is a software for mapping RNA-seq data to reference genome for splice junction discovery that depends only on reference genome, and not on any further annotations."
+      homepage: "https://github.com/davidroberson/MapSplice2"
+      documentation: "http://www.netlab.uky.edu/p/bioinfo/MapSplice2"
+      doi: "10.1093/nar/gkq622"
+      licence: "MIT"
+
+## TODO nf-core: Add a description of all of the variables used as input
+input:
+  # Only when we have meta
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  #
+  ## TODO nf-core: Delete / customise this example input
+  - bam:
+      type: file
+      description: BAM/CRAM/SAM file
+      pattern: "*.{bam,cram,sam}"
+
+## TODO nf-core: Add a description of all of the variables used as output
+output:
+  #Only when we have meta
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  #
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+  ## TODO nf-core: Delete / customise this example output
+  - bam:
+      type: file
+      description: Sorted BAM/CRAM/SAM file
+      pattern: "*.{bam,cram,sam}"
+
+authors:
+  - "@BarryDigby"
